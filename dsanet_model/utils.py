@@ -1,0 +1,25 @@
+def add_model_config(root_dir):  # pragma: no cover
+    config = {
+        "root_dir": root_dir,
+        "log_dir": root_dir + "/lightning_logs",
+        "local": 3,
+        "n_kernels": 32,
+        "w_kernel": 1,
+        "d_model": 512,
+        "d_inner": 2048,
+        "d_k": 64,
+        "d_v": 64,
+        "n_head": 8,
+        "n_layers": 6,
+        "drop_prob": 0.1,
+        "data_name": "csi",
+        "data_dir": "./data",
+        "n_multiv": 321,
+        "window": 48,
+        "horizon": 3,
+        "learning_rate": 0.005,
+        "optimizer_name": "adam",
+        "criterion": "mse_loss",
+        "batch_size": 16,
+    }
+    return config
