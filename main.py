@@ -20,7 +20,7 @@ torch.manual_seed(SEED)
 torch.cuda.manual_seed_all(SEED)
 np.random.seed(SEED)
 
-root_dir = "/home/songzy/myDL/Projects3/DSANet"
+root_dir = os.getcwd()
 log_dir = os.path.join(root_dir, "dsanet_logs")
 
 config = add_model_config(root_dir)
@@ -38,4 +38,4 @@ trainer = Trainer(
 )
 
 trainer.fit(model)
-trainer.test(model)
+# trainer.test(model)

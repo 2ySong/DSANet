@@ -30,23 +30,28 @@ class MTSFDataset(torch.utils.data.Dataset):
         # file_path = os.path.join(
         #     data_dir, data_name, "{}_{}.txt".format(data_name, set_type)
         # )
-        dataPath = "/root/myDL/DSANet/data/"
+        dataPath = "E:/Github-Repositories/datasets/truedata/electricity/"
         if set_type == "train":
             rawdata = pd.read_csv(
-                dataPath + "electricity.txt", sep=",", header=0
-            ).values[:7000]
+                dataPath + "electricity.txt", sep=",", header=None
+            ).values[:700]
+            print('\n train')
         elif set_type == "validation":
             rawdata = pd.read_csv(
-                dataPath + "electricity.txt", sep=",", header=0
-            ).values[7000:8000]
+                dataPath + "electricity.txt", sep=",", header=None
+            ).values[700:800]
+            print('\n val')
+            
         elif set_type == "test":
             rawdata = pd.read_csv(
-                dataPath + "electricity.txt", sep=",", header=0
-            ).values[8000:10000]
+                dataPath + "electricity.txt", sep=",", header=None
+            ).values[800:1000]
+            print('\n test')
+            
 
         # rawdata = np.loadtxt(open(file_path), delimiter=",")
         self.len, self.var_num = rawdata.shape
-        self.sample_num = max(self.len - self.window - self.horizon + 1 - 100, 0)
+        self.sample_num = max(self.len - self.window - self.horizon + 1 - 1, 0)
         self.samples, self.labels = self.__getsamples(rawdata)
 
     def __getsamples(self, data):

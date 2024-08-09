@@ -554,7 +554,6 @@ class DSANet(LightningModule):
             batch_size=batch_size,
             shuffle=should_shuffle,
             sampler=train_sampler,
-            num_workers=8,
         )
 
         return loader
